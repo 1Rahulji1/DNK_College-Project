@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+   <style>
+     .footer {
+  background-color: #f4f4f4;
+  padding: 50px 10%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.footer-brand h1 {
+  font-size: 32px;
+  color: #111;
+}
+
+.footer-brand h2 {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
+  max-width: 250px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  min-width: 180px;
+}
+
+.footer-links h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #555;
+  line-height: 1.8;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #0096ff;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px 5%;
+  }
+
+  .footer-brand h2 {
+    max-width: 100%;
+  }
+}
+
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f5f7fa;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* Header & Navbar */
+header {
+  background-color: #fff;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+  padding: 15px 6%;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  user-select: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.nav-category a:first-child {
+  color: #111;
+  font-size: 44px;
+  font-weight: 900;
+  margin-right: 40px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.nav-category a:first-child:hover {
+  color: #3b82f6; /* blue tint on hover */
+}
+
+/* Nav links */
+.nav-category a:not(:first-child) {
+  color: #555;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-category a:not(:first-child):hover {
+  background-color: #3b82f6;
+  color: white;
+}
+
+/* User details */
+.user-details span {
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.user-details span:hover {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.user-details .bi {
+  font-size: 22px;
+  color: #555;
+  margin-left: 15px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.user-details .bi:hover {
+  color: #3b82f6;
+}
+
+/* Toggle button */
+.nav-toggle {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  padding: 5px 10px;
+  user-select: none;
+}
+
+/* Main content */
+#body {
+  padding: 40px 6%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  min-height: 80vh;
+}
+
+/* Cards container */
+#card_body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Product Card */
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.12);
+  overflow: hidden;
+  width: 100%;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 15px;
+  text-align: center;
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgb(0 0 0 / 0.18);
+}
+
+/* Image */
+.card_img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  background-color: #f0f0f0;
+}
+
+/* Title */
+.card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #222;
+  min-height: 48px; /* keep consistent height */
+}
+
+/* Price */
+.card div {
+  font-weight: 700;
+  color: #2a9d8f;
+  font-size: 17px;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-category,
+  .user-details {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+    background-color: #f9fafb;
+    padding: 12px 0;
+    border-radius: 10px;
+    display: none;
+  }
+
+  .nav-category.show,
+  .user-details.show {
+    display: flex;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-category a:not(:first-child),
+  .user-details span {
+    padding: 12px 20px;
+    font-size: 17px;
+  }
+
+  #body {
+    padding: 30px 3%;
+  }
+
+  #card_body {
+    gap: 16px;
+  }
+
+  .card {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+
+   </style>
+</head>
+<body >
+    <main >
+        <header>
+            <nav >
+            
+                <div class="nav-toggle">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <span class="nav-category">
+                    <span style="font-size: 40px; font-weight: 900; margin-right:30px; margin-top:-20px;">DNK</span>
+                    <a href="Pages/everything/index.html">EVERYTHING</a>
+                    <a href="Pages/women/index.html">WOMEN</a>
+                    <a href="Pages/men/index.html">MEN</a>
+                    <a href="Pages/accessories/index.html">ACCESSORIES</a>
+                </span>
+                <span class="user-details">
+                    <span><a href="./Pages/about/about.html">ABOUT</a></span>
+                    <span><a href="https://abhinav84094.github.io/My_Portfolio/">CONTACT US</a></span>
+                    <a href="./Pages/track-status/index.html" style="font-size: 10px;">Orders
+                      <!-- <span class="bi bi-bag-fill"></span> -->
+                    </a>
+                    <a href="./Pages/adminFeatures/addProduct/index.html" id="addProductBtn" style="font-size: 10px;">AddProduct
+                      <span class="bi bi-person-fill" style="margin-right: 30px;"></span>
+                    </a>
+                    <button onclick="logOut()">Logout</button>
+                  </span>
+            </nav>
+    
+        </header>
+
+
+        <!-- <div class="heading-title" >
+           <h1 style="font-size: 15vw;">WELCOME</h1>
+           <h1>TO</h1>
+           <h1 style="font-size: 7vw;">DealNKart	</h1>
+           <h1>A blend of “Deals” and “Kart” (like shopping cart) – catchy and e-commerce themed</h1> -->
+
+           <!-- <div style="background-image: url(./public/webImg/DNK\ img.jpg);"></div>
+        </div> -->
+
+         <div class="trainer-card-container" style="flex-direction: column; align-items:center; font-family: cursive;">
+            <div class="trainer-card" style="background-image: url(./public/webImg/DNK\ img.jpg);">
+              
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <div id="ecom-trainer">
+        <div id="marquee">
+            <marquee scrollamount="20">
+            I think this is the place which you needs
+            </marquee>
+        </div>
+
+       
+        
+        </div>
+    </div>
+
+    <div class="featured-products" style="text-align: center;">
+
+  <h1 style="font-size:5vw; font-family: cursive; text-align:center; color:#333;">We Offers</h1>
+
+  <div style="height: 200px; display: flex; flex-direction: column; justify-content: center;">
+    <a href="./Pages/everything/index.html"><h1>Featured Products</h1></a>
+    <p style="margin-left: 10px; font-family: sans-serif; font-size: 1rem; color: #555;">
+      Discover our best-selling and hand-picked items. These are top-rated, trendy, and customer-favorite products you’ll love!
+    </p>
+  </div>
+
+  <div style="height: 200px; display: flex; flex-direction: column; justify-content: center;">
+    <a href="./Pages/men/index.html"><h1>Men Products</h1></a>
+    <p style="margin-left: 10px; font-family: sans-serif; font-size: 1rem; color: #555;">
+      Explore a wide range of men’s fashion, from casual outfits to formal wear. Style and comfort guaranteed.
+    </p>
+  </div>
+
+  <div style="height: 200px; display: flex; flex-direction: column; justify-content: center;">
+    <a href="./Pages/women/index.html"><h1>Women Products</h1></a>
+    <p style="margin-left: 10px; font-family: sans-serif; font-size: 1rem; color: #555;">
+      Elegant and trendy collections crafted for modern women. Fashion that celebrates confidence and grace.
+    </p>
+  </div>
+
+  <div style="height: 200px; display: flex; flex-direction: column; justify-content: center;">
+    <a href="./Pages/accessories/index.html"><h1>Accessories Products</h1></a>
+    <p style="margin-left: 10px; font-family: sans-serif; font-size: 1rem; color: #555;">
+      Complete your look with stylish accessories – watches, bags, sunglasses, and more to match every outfit.
+    </p>
+  </div>
+
+  <div class="card_body">
+    You can dynamically add more cards here if needed
+  </div>
+
+</div>
+
+    
+    <!-- <div class="bottom_block" style="
+  background-color: #f0f8ff;
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 10px;
+  margin: 40px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+">
+  
+</div> -->
+
+<div style="
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-top: 20px;
+">
+  <span style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  ">
+    <img src="./public/globe-free-img.png" alt="not found" style="width: 60px; height: 60px;">
+  </span>
+
+  <span style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  ">
+    <img src="./public/lock-free-img copy.png" alt="" style="width: 60px; height: 60px;">
+  </span>
+
+  <span style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  ">
+    <img src="./public/quality-free-img.png" alt="" style="width: 60px; height: 60px;">
+  </span>
+
+  <span style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  ">
+    <img src="./public/tag-free-img.png" alt="" style="width: 60px; height: 60px;">
+  </span>
+</div>
+
+  
+  <div class="footer">
+  <div class="footer-brand">
+    <h1><i>DNK</i></h1>
+    <h2>The best look anytime, anywhere.</h2>
+  </div>
+  <div class="footer-links">
+    <h3>For Her</h3>
+    <a href="home.html">Women Jeans</a>
+    <a href="home.html">Tops and Shirts</a>
+    <a href="home.html">Women Jackets</a>
+    <a href="home.html">Heels and Flats</a>
+    <a href="home.html">Women Accessories</a>
+  </div>
+  <div class="footer-links">
+    <h3>For Him</h3>
+    <a href="home.html">Men Jeans</a>
+    <a href="home.html">Men Shirts</a>
+    <a href="home.html">Men Shoes</a>
+    <a href="home.html">Men Accessories</a>
+    <a href="home.html">Men Jackets</a>
+  </div>
+  
+</div>
+
+  <a  href="home.html"><marquee style="font-size: 30px;">🙂🙂🙂THANKS FOR VISITING🙂🙂🙂</marquee></a>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
